@@ -1,0 +1,34 @@
+{
+  "name": "ts-flag",
+  "version": "1.0.0",
+  "description": "the commandline parser for node.js",
+  "main": "lib/ts_flag.js",
+  "types": "lib/ts_flag.d.ts",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "build": "tsc",
+    "format": "prettier --write \"lib/**/*.ts\" \"lib/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Songsungeun/jsflag.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Songsungeun/jsflag/issues"
+  },
+  "homepage": "https://github.com/Songsungeun/jsflag#readme",
+  "devDependencies": {
+    "@types/node": "^14.11.5",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3",
+    "prettier": "^2.1.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {}
+}
