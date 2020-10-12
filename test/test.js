@@ -1,26 +1,29 @@
 'use strict';
 var expect = require('chai').expect;
-var index = require('../dist/index.js');
+let flag = require('../lib/ts_flag').TSFlag;
+let args = ['name=IronMan', 'Type=Mark1', 'power=99'];
+let tsFlag = new flag(args);
 
 describe('Test', () => {
-    it('should return Boys', () => {
-        var result = index.getPlural('Boy');
-        expect(result).to.equal('Boys');
+    it('should return IronMan', () => {
+        let result = tsFlag.str('name', '', 'name of Heroes');
+        expect(result).to.equal('IronMan');
     })
-    it('should return Girls', () => {
-        var result = index.getPlural('Girl');
-        expect(result).to.equal('Girls');
-    });
-    it('should return Geese', () => {
-        var result = index.getPlural('Goose');
-        expect(result).to.equal('Geese');
-    });
-    it('should return Toys', () => {
-        var result = index.getPlural('Toy');
-        expect(result).to.equal('Toys');
-    });
-    it('should return Men', () => {
-        var result = index.getPlural('Man');
-        expect(result).to.equal('Men');
-    });
+    it('should return string', () => {
+        let result = tsFlag.str('name', '', 'name of Heroes');
+        expect(result).to.be.a('string');
+    })
+    it('should return Mark1', () => {
+        let result = tsFlag.str('Type', '', 'type of suites');
+        expect(result).to.equal('Mark1');
+    })
+    it('should return 99', () => {
+        let result = tsFlag.int('power', '', 'power of suites');
+        expect(result).to.equal(99);
+    })
+    it('should return number', () => {
+        let result = tsFlag.int('power', '', 'power of suites');
+        expect(result).to.be.a('number');
+    })
+
 })
