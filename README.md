@@ -30,6 +30,7 @@ node .\example.js -ea=1 -girlfriend=Jane
 
 node .\example.js -ea -girlfriend=Jane
 => 0 false Jane
+//ea set initial value
 
 node .\example.js -ea -girlfriend
 => 0 false everyone
