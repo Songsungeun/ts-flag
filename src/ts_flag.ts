@@ -31,7 +31,7 @@ export class TSFlag {
     * @Param: {optionName: string, initValue: number, description: string}
     * @Return: {option Value converted to int || initValue (number)}
     */
-    int(name: string, initValue: number, desc: string): number | Error {
+    int(name: string, initValue: number, desc: string): number {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex].split("=")[1];
@@ -43,12 +43,28 @@ export class TSFlag {
         return parseInt(optionVal);
     }
 
+    intArr(name: string, initValue: Array<number>, desc: string) {
+        this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
+        let optionIndex = this.getOptionIndex(name);
+        let optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal) return initValue;
+
+        let valueList: Array<number> = [];
+
+        optionVal.split(",").forEach(val => {
+            if (isNaN(parseInt(optionVal))) throw new Error(`value of ${val} option is not number`);
+            valueList.push(parseInt(val))
+        })
+
+        return valueList;
+    }
+
     /**
     * @Method: Convert option value to float
     * @Param: {optionName: string, initValue: number, description: string}
     * @Return: {option Value converted to float || Error}
     */
-    float(name: string, initValue: number, desc: string): number | Error {
+    float(name: string, initValue: number, desc: string): number {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex].split("=")[1];
@@ -61,12 +77,28 @@ export class TSFlag {
         return parseFloat(optionVal);
     }
 
+    floatArr(name: string, initValue: Array<number>, desc: string) {
+        this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
+        let optionIndex = this.getOptionIndex(name);
+        let optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal) return initValue;
+
+        let valueList: Array<number> = [];
+
+        optionVal.split(",").forEach(val => {
+            if (isNaN(parseFloat(optionVal))) throw new Error(`value of ${val} option is not number`);
+            valueList.push(parseFloat(val))
+        })
+
+        return valueList;
+    }
+
     /**
     * @Method: get string option value
     * @Param: {optionName: string, initValue: number, description: string}
     * @Return: {string || Error}
     */
-    str(name: string, initValue: string, desc: string): string | Error {
+    str(name: string, initValue: string, desc: string): string {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex].split("=")[1];
@@ -74,6 +106,17 @@ export class TSFlag {
 
         this.changeArgObj(name, optionVal.toString());
         return optionVal.toString();;
+    }
+
+    strArr(name: string, initValue: Array<string>, desc: string) {
+        this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
+        let optionIndex = this.getOptionIndex(name);
+        let optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal) return initValue;
+
+        let valueList = optionVal.split(",");
+        this.changeArgObj(name, valueList);
+        return valueList;
     }
 
     /**

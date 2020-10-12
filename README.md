@@ -5,7 +5,7 @@ the commandline parser for node.js, inspired by Go's Flag package
 npm install tsflag
 
 ## USAGE
-```javasript
+```javascript
 let flag = require('ts_flag').TSFlag;
 let tsFlag = new flag();
 
@@ -16,7 +16,7 @@ try {
     console.log(ea, love, she);
 } catch (e) {
     console.log(e);
-    tsFlag.Usage()
+    tsFlag.Usage();
 }
 
 ```
@@ -33,6 +33,30 @@ node .\example.js -ea -girlfriend=Jane
 
 node .\example.js -ea -girlfriend
 => 0 false everyone
+```
+
+### Array Example
+```javascript
+let flag = require('ts_flag').TSFlag;
+let tsFlag = new flag();
+
+try {
+    let Astudents = tsFlag.strArr('students', [], 'students of class');
+    let Bstudents
+    let scores = tsFlag.intArr('scores', [], 'scores of students');
+    console.log(Astudents, BAstudents, scores);
+} catch (e) {
+    console.log(e);
+    tsFlag.Usage();
+}
+```
+
+```console
+node .\example.js -students="IronMan","Thor","Hulk" -Bstus="SuperMan","BatMan" -scores="90,84,67"
+=> [ 'IronMan', 'Thor', 'Hulk' ] [ 'SuperMan', 'BatMan' ] [ 90, 84, 67 ]
+
+node .\example.js -students="IronMan","Thor","Hulk" -Bstus -scores="90,84,67"
+=> [ 'IronMan', 'Thor', 'Hulk' ] [ 'john', 'mark' ] [ 90, 84, 67 ]
 ```
 
 ###### if not set optionName (except Boolean Type)

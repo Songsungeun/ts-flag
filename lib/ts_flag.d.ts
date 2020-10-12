@@ -20,19 +20,22 @@ export declare class TSFlag {
     * @Param: {optionName: string, initValue: number, description: string}
     * @Return: {option Value converted to int || initValue (number)}
     */
-    int(name: string, initValue: number, desc: string): number | Error;
+    int(name: string, initValue: number, desc: string): number;
+    intArr(name: string, initValue: Array<number>, desc: string): number[];
     /**
     * @Method: Convert option value to float
     * @Param: {optionName: string, initValue: number, description: string}
     * @Return: {option Value converted to float || Error}
     */
-    float(name: string, initValue: number, desc: string): number | Error;
+    float(name: string, initValue: number, desc: string): number;
+    floatArr(name: string, initValue: Array<number>, desc: string): number[];
     /**
     * @Method: get string option value
     * @Param: {optionName: string, initValue: number, description: string}
     * @Return: {string || Error}
     */
-    str(name: string, initValue: string, desc: string): string | Error;
+    str(name: string, initValue: string, desc: string): string;
+    strArr(name: string, initValue: Array<string>, desc: string): string[];
     /**
     * @Method: get option length
     * @Param: null
