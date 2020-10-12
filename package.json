@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Songsungeun/jsflag.git"
+    "url": "git+https://github.com/Songsungeun/ts-flag.git"
   },
   "keywords": [
     "flag",
@@ -26,9 +26,9 @@
   "author": "sungeun song <korea.sesong@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Songsungeun/jsflag/issues"
+    "url": "https://github.com/Songsungeun/ts-flag/issues"
   },
-  "homepage": "https://github.com/Songsungeun/jsflag#readme",
+  "homepage": "https://github.com/Songsungeun/ts-flag#readme",
   "devDependencies": {
     "@types/node": "^14.11.5",
     "chai": "^4.2.0",
