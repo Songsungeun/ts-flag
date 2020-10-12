@@ -2,7 +2,7 @@
 the commandline parser for node.js, inspired by Go's Flag package
 
 ## Installation
-npm install tsflag
+npm install ts-flag
 
 ## USAGE
 ```javascript
