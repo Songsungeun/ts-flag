@@ -7,7 +7,7 @@ interface ArgType {
 export declare class TSFlag {
     private _args;
     private _argObjList;
-    constructor();
+    constructor(customArgs?: Array<string>);
     /**
     * This is never returns Error because if not contained option it returns false
     * @Method: Returns value(Boolean) of option
@@ -47,6 +47,17 @@ export declare class TSFlag {
     Usage(): void;
     setArgObj(obj: ArgType): void;
     getArgObj(): Array<ArgType>;
+    /**
+    * @Method: if user input command option name and value, change the value
+    * @Param: optionName, changeValue
+    * @Return: void
+    */
     changeArgObj(name: string, value: any): void;
+    /**
+    * @Method: if user input command option name and value, change the value
+    * @Param: optionName, changeValue
+    * @Return: void
+    */
+    getOptionIndex(name: string): number;
 }
 export {};

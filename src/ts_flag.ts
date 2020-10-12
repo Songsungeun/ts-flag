@@ -9,8 +9,8 @@ export class TSFlag {
     private _args: Array<string>
     private _argObjList: Array<ArgType> = [];
 
-    constructor() {
-        this._args = process.argv.slice(2) || [];
+    constructor(customArgs?: Array<string>) {
+        this._args = customArgs || process.argv.slice(2) || [];
     }
 
     /**
@@ -33,7 +33,7 @@ export class TSFlag {
     */
     int(name: string, initValue: number, desc: string): number | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
-        let optionIndex = this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
+        let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex + 1];
 
         // NOTE - Error Case: not contain, not number
@@ -50,7 +50,7 @@ export class TSFlag {
     */
     float(name: string, initValue: number, desc: string): number | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
-        let optionIndex = this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
+        let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex + 1];
 
         // NOTE - Error Case: not contain, not number
@@ -67,7 +67,7 @@ export class TSFlag {
     */
     str(name: string, initValue: string, desc: string): string | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
-        let optionIndex = this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
+        let optionIndex = this.getOptionIndex(name);
 
         // NOTE - Error Case: not contain, not number
         if (optionIndex < 0) return new Error(` ${name} option is not contained`);
@@ -107,8 +107,11 @@ export class TSFlag {
         return this._argObjList;
     }
 
-    // init: set ArgType(value = initValue),
-    // if user input command option name and value, change the value 
+    /**
+    * @Method: if user input command option name and value, change the value 
+    * @Param: optionName, changeValue
+    * @Return: void
+    */
     changeArgObj(name: string, value: any) {
         this._argObjList.forEach(arg => {
             if (name === arg.name) {
@@ -116,15 +119,14 @@ export class TSFlag {
             }
         })
     }
-}
 
-let tmp = new TSFlag();
-let result = tmp.int('nim', 0, 'test');
-let result2 = tmp.bool('f', false, 'bool description');
-let result3 = tmp.str("s", "", "this is string description");
-let result4 = tmp.float('float', 0, 'this is float description');
-tmp.Usage();
-// console.log(result);
-// let check = tmp.str("s", "", "Hello");
-// console.log(check);
+    /**
+    * @Method: if user input command option name and value, change the value 
+    * @Param: optionName, changeValue
+    * @Return: void
+    */
+    getOptionIndex(name: string) {
+        return this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
+    }
+}
 
