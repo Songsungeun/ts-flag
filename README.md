@@ -43,7 +43,7 @@ let tsFlag = new flag();
 
 try {
     let Astudents = tsFlag.strArr('students', [], 'students of class');
-    let Bstudents
+    let Bstudents = tsFlag.strArr('Bstus', ['john', 'mark']);
     let scores = tsFlag.intArr('scores', [], 'scores of students');
     console.log(Astudents, BAstudents, scores);
 } catch (e) {
