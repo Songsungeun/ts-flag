@@ -14,7 +14,15 @@
     "type": "git",
     "url": "git+https://github.com/Songsungeun/jsflag.git"
   },
-  "keywords": [],
+  "keywords": [
+    "flag",
+    "tsFlag",
+    "argument",
+    "args",
+    "argv",
+    "option",
+    "cli"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {

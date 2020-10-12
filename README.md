@@ -88,3 +88,7 @@ try {
 
 ```
 
+## Test 
+```sh
+npm run test
+```
