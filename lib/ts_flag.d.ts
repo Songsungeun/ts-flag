@@ -21,6 +21,8 @@ export declare class TSFlag {
     * @Return: {converted Value || Error}
     */
     int(name: string, initValue: number, desc: string): number | Error;
+    float(name: string, initValue: number, desc: string): number | Error;
+    str(name: string, initValue: string, desc: string): string | Error;
     setArgObj(obj: ArgType): void;
     getArgObj(): Array<ArgType>;
     changeArgObj(name: string, value: any): void;
