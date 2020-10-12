@@ -7,10 +7,10 @@ interface ArgType {
 
 export class TSFlag {
     private _args: Array<string>
-    private _argObj: Array<ArgType> = [];
+    private _argObjList: Array<ArgType> = [];
 
     constructor() {
-        this._args = process.argv || [];
+        this._args = process.argv.slice(2) || [];
     }
 
     /**
@@ -29,7 +29,7 @@ export class TSFlag {
     /**
     * @Method: Convert option value to integer
     * @Param: {optionName: string, initValue: number, description: string}
-    * @Return: {converted Value || Error}
+    * @Return: {option Value converted to int || Error}
     */
     int(name: string, initValue: number, desc: string): number | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
@@ -43,6 +43,11 @@ export class TSFlag {
         return parseInt(optionVal);
     }
 
+    /**
+    * @Method: Convert option value to float
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {option Value converted to float || Error}
+    */
     float(name: string, initValue: number, desc: string): number | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
@@ -55,29 +60,57 @@ export class TSFlag {
         return parseFloat(optionVal);
     }
 
+    /**
+    * @Method: get string option value
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {string || Error}
+    */
     str(name: string, initValue: string, desc: string): string | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
-        let optionVal = this._args[optionIndex + 1].toString();
 
         // NOTE - Error Case: not contain, not number
         if (optionIndex < 0) return new Error(` ${name} option is not contained`);
+
+        let optionVal = this._args[optionIndex + 1].toString();
         this.changeArgObj(name, optionVal);
         return optionVal;
     }
 
+    /**
+    * @Method: get option length
+    * @Param: null
+    * @Return: number
+    */
+    NFlag(): number {
+        return this._args.length;
+    }
+
+    /**
+    * @Method: show option help
+    * @Param: null
+    * @Return: void (this is just printed option list)
+    */
+    Usage(): void {
+        console.group("Usage of this");
+        this._argObjList.forEach(option => {
+            console.log(`- ${option.name}<${option.type}>, initValue=${option.optionVal} [${option.description}]`);
+        })
+        console.groupEnd();
+    }
+
     setArgObj(obj: ArgType) {
-        this._argObj.push(obj);
+        this._argObjList.push(obj);
     }
 
     getArgObj(): Array<ArgType> {
-        return this._argObj;
+        return this._argObjList;
     }
 
     // init: set ArgType(value = initValue),
     // if user input command option name and value, change the value 
     changeArgObj(name: string, value: any) {
-        this._argObj.forEach(arg => {
+        this._argObjList.forEach(arg => {
             if (name === arg.name) {
                 arg.optionVal = value;
             }
@@ -87,7 +120,11 @@ export class TSFlag {
 
 let tmp = new TSFlag();
 let result = tmp.int('nim', 0, 'test');
-console.log(result);
+let result2 = tmp.bool('f', false, 'bool description');
+let result3 = tmp.str("s", "", "this is string description");
+let result4 = tmp.float('float', 0, 'this is float description');
+tmp.Usage();
+// console.log(result);
 // let check = tmp.str("s", "", "Hello");
 // console.log(check);
 

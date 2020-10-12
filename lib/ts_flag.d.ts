@@ -6,7 +6,7 @@ interface ArgType {
 }
 export declare class TSFlag {
     private _args;
-    private _argObj;
+    private _argObjList;
     constructor();
     /**
     * This is never returns Error because if not contained option it returns false
@@ -18,11 +18,33 @@ export declare class TSFlag {
     /**
     * @Method: Convert option value to integer
     * @Param: {optionName: string, initValue: number, description: string}
-    * @Return: {converted Value || Error}
+    * @Return: {option Value converted to int || Error}
     */
     int(name: string, initValue: number, desc: string): number | Error;
+    /**
+    * @Method: Convert option value to float
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {option Value converted to float || Error}
+    */
     float(name: string, initValue: number, desc: string): number | Error;
+    /**
+    * @Method: get string option value
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {string || Error}
+    */
     str(name: string, initValue: string, desc: string): string | Error;
+    /**
+    * @Method: get option length
+    * @Param: null
+    * @Return: number
+    */
+    NFlag(): number;
+    /**
+    * @Method: show option help
+    * @Param: null
+    * @Return: void (this is just printed option list)
+    */
+    Usage(): void;
     setArgObj(obj: ArgType): void;
     getArgObj(): Array<ArgType>;
     changeArgObj(name: string, value: any): void;
