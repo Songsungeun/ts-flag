@@ -29,16 +29,16 @@ export class TSFlag {
     /**
     * @Method: Convert option value to integer
     * @Param: {optionName: string, initValue: number, description: string}
-    * @Return: {option Value converted to int || Error}
+    * @Return: {option Value converted to int || initValue (number)}
     */
     int(name: string, initValue: number, desc: string): number | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
-        let optionVal = this._args[optionIndex + 1];
+        let optionVal = this._args[optionIndex].split("=")[1];
 
-        // NOTE - Error Case: not contain, not number
-        if (optionIndex < 0) return new Error(` ${name} option is not contained`);
-        if (isNaN(parseInt(optionVal))) return new Error(`value of ${name} option is not number`);
+        if (!optionVal) return initValue;
+
+        if (isNaN(parseInt(optionVal))) throw new Error(`value of ${name} option is not number`);
         this.changeArgObj(name, optionVal);
         return parseInt(optionVal);
     }
@@ -51,11 +51,12 @@ export class TSFlag {
     float(name: string, initValue: number, desc: string): number | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
-        let optionVal = this._args[optionIndex + 1];
+        let optionVal = this._args[optionIndex].split("=")[1];
 
-        // NOTE - Error Case: not contain, not number
-        if (optionIndex < 0) return new Error(` ${name} option is not contained`);
-        if (isNaN(parseFloat(optionVal))) return new Error(`value of ${name} option is not number`);
+        if (!optionVal) return initValue;
+
+        // NOTE - if not converted number, throw error
+        if (isNaN(parseFloat(optionVal))) throw new Error(`value of ${name} option is not number`);
         this.changeArgObj(name, optionVal);
         return parseFloat(optionVal);
     }
@@ -68,13 +69,11 @@ export class TSFlag {
     str(name: string, initValue: string, desc: string): string | Error {
         this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
+        let optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal) return initValue;
 
-        // NOTE - Error Case: not contain, not number
-        if (optionIndex < 0) return new Error(` ${name} option is not contained`);
-
-        let optionVal = this._args[optionIndex + 1].toString();
-        this.changeArgObj(name, optionVal);
-        return optionVal;
+        this.changeArgObj(name, optionVal.toString());
+        return optionVal.toString();;
     }
 
     /**
@@ -126,7 +125,10 @@ export class TSFlag {
     * @Return: void
     */
     getOptionIndex(name: string) {
-        return this._args.findIndex(arg => arg === name || arg === `-${name}` || arg === `--${name}`);
+        let optionIndex = this._args.findIndex(arg => arg.includes(name) || arg.includes(`-${name}`) || arg.includes(`--${name}`));
+        // NOTE - if not contained, throw error
+        if (optionIndex < 0) throw new Error(`${name} option is not contained`);
+        return optionIndex;
     }
 }
 

@@ -18,7 +18,7 @@ export declare class TSFlag {
     /**
     * @Method: Convert option value to integer
     * @Param: {optionName: string, initValue: number, description: string}
-    * @Return: {option Value converted to int || Error}
+    * @Return: {option Value converted to int || initValue (number)}
     */
     int(name: string, initValue: number, desc: string): number | Error;
     /**
