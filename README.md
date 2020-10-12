@@ -36,6 +36,17 @@ node .\example.js -ea -girlfriend
 => 0 false everyone
 ```
 
+###### if not set optionName (except Boolean Type)
+```console
+node .\example.js -ea=1
+Error: girlfriend option is not contained
+  at stack history...
+Usage of this
+  - ea<number>, initValue=1 [count of tickes]
+  - love<boolean>, initValue=false [if you love me write this option]
+  - girlfriend<number>, initValue=everyone [my girl friend]
+```
+
 ### Array Example
 ```javascript
 let flag = require('ts_flag').TSFlag;
@@ -60,20 +71,10 @@ node .\example.js -students="IronMan","Thor","Hulk" -Bstus -scores="90,84,67"
 => [ 'IronMan', 'Thor', 'Hulk' ] [ 'john', 'mark' ] [ 90, 84, 67 ]
 ```
 
-###### if not set optionName (except Boolean Type)
-```console
-node .\example.js -ea=1
-Error: girlfriend option is not contained
-  at stack history...
-Usage of this
-  - ea<number>, initValue=1 [count of tickes]
-  - love<boolean>, initValue=false [if you love me write this option]
-  - girlfriend<number>, initValue=everyone [my girl friend]
-```
-
 ### if you want the custom Arguments, inject a stringArray into the constructor
 ```javasript
 let flag = require('ts_flag').TSFlag;
+// let args = ['name=IronMan', 'Type=Mark1', 'power=99'];
 let args = ["-ea=5", "girlfriend=Jane"];
 let tsFlag = new flag(args);
 
