@@ -1,4 +1,4 @@
-# jsflag
+# ts-flag
 the commandline parser for node.js, inspired by Go's Flag package
 
 ## Installation
