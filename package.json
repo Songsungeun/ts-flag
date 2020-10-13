@@ -21,10 +21,12 @@
     "args",
     "argv",
     "option",
-    "cli"
+    "cli",
+    "Typescript",
+    "command"
   ],
   "author": "sungeun song <korea.sesong@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Songsungeun/ts-flag/issues"
   },
