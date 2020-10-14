@@ -173,7 +173,7 @@ export class TSFlag {
             return option === name || option === `-${name}` || option === `--${name}`;
         });
         // NOTE - if not contained, throw error
-        if (optionIndex < 0) throw new Error(`${name} option is not contained`);
+        if (optionIndex < 0) throw new ReferenceError(`${name} option is not contained`);
         return optionIndex;
     }
 }
