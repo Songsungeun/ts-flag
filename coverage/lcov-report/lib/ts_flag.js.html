@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib\ts_flag.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">lib/</a> ts_flag.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.57% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>83/97</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">69.7% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>23/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>18/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.42% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>82/96</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">95×</span>
+<span class="cline-any cline-yes">95×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TSFlag = void 0;
+var TSFlag = /** @class */ (function () {
+    function TSFlag(customArgs) {
+        this._argObjList = [];
+        this._args = customArgs || <span class="branch-1 cbranch-no" title="branch not covered" >process.argv.slice(2) </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >[];</span>
+    }
+    /**
+    * This is never returns Error because if not contained option it returns false
+    * @Method: Returns value(Boolean) of option
+    * @Param: {optionName: string, initValue: boolean, description: string}
+    * @Return: {Boolean}
+    */
+    TSFlag.prototype.bool = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'boolean', optionVal: initValue, description: desc });
+        var optionVal = this._args.some(function (arg) { return arg === name || arg === "-" + name || arg === "--" + name; });
+        this.changeArgObj(name, optionVal);
+        return optionVal;
+    };
+    /**
+    * @Method: Convert option value to integer
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {option Value converted to int || initValue (number)}
+    */
+    TSFlag.prototype.int = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'number', optionVal: initValue, description: desc });
+        var optionIndex = this.getOptionIndex(name);
+        var optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal)
+            return initValue;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(parseInt(optionVal)))
+<span class="cstat-no" title="statement not covered" >            throw new Error("value of " + name + " option is not number");</span>
+        this.changeArgObj(name, optionVal);
+        return parseInt(optionVal);
+    };
+    TSFlag.prototype.intArr = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'number', optionVal: initValue, description: desc });
+        var optionIndex = this.getOptionIndex(name);
+        var optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal)
+            return initValue;
+        var valueList = [];
+        optionVal.split(",").forEach(function (val) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(parseInt(optionVal)))
+<span class="cstat-no" title="statement not covered" >                throw new Error("value of " + val + " option is not number");</span>
+            valueList.push(parseInt(val));
+        });
+        return valueList;
+    };
+    /**
+    * @Method: Convert option value to float
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {option Value converted to float || Error}
+    */
+    TSFlag.prototype.float = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'number', optionVal: initValue, description: desc });
+        var optionIndex = this.getOptionIndex(name);
+        var optionVal = this._args[optionIndex].split("=")[1];
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!optionVal)
+            return initValue;
+        // NOTE - if not converted number, throw error
+<span class="cstat-no" title="statement not covered" >        if (isNaN(parseFloat(optionVal)))</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error("value of " + name + " option is not number");</span>
+<span class="cstat-no" title="statement not covered" >        this.changeArgObj(name, optionVal);</span>
+<span class="cstat-no" title="statement not covered" >        return parseFloat(optionVal);</span>
+    };
+    TSFlag.prototype.floatArr = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'number', optionVal: initValue, description: desc });
+        var optionIndex = this.getOptionIndex(name);
+        var optionVal = this._args[optionIndex].split("=")[1];
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!optionVal)
+<span class="cstat-no" title="statement not covered" >            return initValue;</span>
+        var valueList = [];
+        optionVal.split(",").forEach(function (val) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(parseFloat(optionVal)))
+<span class="cstat-no" title="statement not covered" >                throw new Error("value of " + val + " option is not number");</span>
+            valueList.push(parseFloat(val));
+        });
+        return valueList;
+    };
+    /**
+    * @Method: get string option value
+    * @Param: {optionName: string, initValue: number, description: string}
+    * @Return: {string || Error}
+    */
+    TSFlag.prototype.str = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'number', optionVal: initValue, description: desc });
+        var optionIndex = this.getOptionIndex(name);
+        var optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal)
+            return initValue;
+        this.changeArgObj(name, optionVal.toString());
+        return optionVal.toString();
+        ;
+    };
+    TSFlag.prototype.strArr = function (name, initValue, desc) {
+        this.setArgObj({ name: name, type: 'number', optionVal: initValue, description: desc });
+        var optionIndex = this.getOptionIndex(name);
+        var optionVal = this._args[optionIndex].split("=")[1];
+        if (!optionVal)
+            return initValue;
+        var valueList = optionVal.split(",");
+        this.changeArgObj(name, valueList);
+        return valueList;
+    };
+    /**
+    * @Method: get option length
+    * @Param: null
+    * @Return: number
+    */
+    TSFlag.prototype.NFlag = function () {
+        return this._args.length;
+    };
+    /**
+    * @Method: show option help
+    * @Param: null
+    * @Return: void (this is just printed option list)
+    */
+    TSFlag.prototype.Usage = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        console.group("Usage of this");</span>
+<span class="cstat-no" title="statement not covered" >        this._argObjList.forEach(<span class="fstat-no" title="function not covered" >function (option) {</span></span>
+<span class="cstat-no" title="statement not covered" >            console.log("- " + option.name + "&lt;" + option.type + "&gt;, initValue=" + option.optionVal + " [" + option.description + "]");</span>
+        });
+<span class="cstat-no" title="statement not covered" >        console.groupEnd();</span>
+    };
+    TSFlag.prototype.setArgObj = function (obj) {
+        this._argObjList.push(obj);
+    };
+    TSFlag.prototype.getArgObj = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        return this._argObjList;</span>
+    };
+    /**
+    * @Method: if user input command option name and value, change the value
+    * @Param: optionName, changeValue
+    * @Return: void
+    */
+    TSFlag.prototype.changeArgObj = function (name, value) {
+        this._argObjList.forEach(function (arg) {
+            if (name === arg.name) {
+                arg.optionVal = value;
+            }
+        });
+    };
+    /**
+    * @Method: if user input command option name and value, change the value
+    * @Param: optionName, changeValue
+    * @Return: void
+    */
+    TSFlag.prototype.getOptionIndex = function (name) {
+        var optionIndex = this._args.findIndex(function (arg) {
+            var option = arg.split("=")[0].trim();
+            return option === name || option === "-" + name || option === "--" + name;
+        });
+        // NOTE - if not contained, throw error
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (optionIndex &lt; 0)
+<span class="cstat-no" title="statement not covered" >            throw new ReferenceError(name + " option is not contained");</span>
+        return optionIndex;
+    };
+    return TSFlag;
+}());
+exports.TSFlag = TSFlag;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 14 2020 14:08:58 GMT+0900 (GMT+09:00)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
