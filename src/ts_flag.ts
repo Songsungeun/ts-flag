@@ -168,7 +168,10 @@ export class TSFlag {
     * @Return: void
     */
     getOptionIndex(name: string) {
-        let optionIndex = this._args.findIndex(arg => arg.includes(name) || arg.includes(`-${name}`) || arg.includes(`--${name}`));
+        let optionIndex = this._args.findIndex(arg => {
+            let option = arg.split("=")[0].trim();
+            return option === name || option === `-${name}` || option === `--${name}`;
+        });
         // NOTE - if not contained, throw error
         if (optionIndex < 0) throw new Error(`${name} option is not contained`);
         return optionIndex;
