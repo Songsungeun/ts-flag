@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Songsungeun/ts-flag.svg?branch=main)](https://travis-ci.com/Songsungeun/ts-flag)
+
 # ts-flag
 the commandline parser for node.js, inspired by Go's Flag package
 
