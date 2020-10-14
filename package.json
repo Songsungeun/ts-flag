@@ -1,6 +1,6 @@
 {
   "name": "ts-flag",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "the commandline parser for node.js",
   "main": "lib/ts_flag.js",
   "types": "lib/ts_flag.d.ts",
