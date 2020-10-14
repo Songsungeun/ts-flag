@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Songsungeun/ts-flag.svg?branch=main)](https://travis-ci.com/Songsungeun/ts-flag)
-
+[![Coverage Status](https://coveralls.io/repos/github/Songsungeun/ts-flag/badge.svg?branch=main)](https://coveralls.io/github/Songsungeun/ts-flag?branch=main)
 # ts-flag
 the commandline parser for node.js, inspired by Go's Flag package
 
