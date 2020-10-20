@@ -108,7 +108,7 @@ npm run test
 
 ## Log
 
-1.0.4 - Fixed an issue where the exposure type was displayed as number in'str' and'strArr' (operation is normal, only problems at display)
-1.0.3 - Change the value to search for index
-1.0.2 - just modify readme
+1.0.4 - Fixed an issue where the exposure type was displayed as number in'str' and'strArr' (operation is normal, only problems at display)  
+1.0.3 - Change the value to search for index  
+1.0.2 - just modify readme  
 1.0.1 - initial publish
