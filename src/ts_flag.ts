@@ -99,7 +99,7 @@ export class TSFlag {
     * @Return: {string || Error}
     */
     str(name: string, initValue: string, desc: string): string {
-        this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
+        this.setArgObj({ name, type: 'string', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex].split("=")[1];
         if (!optionVal) return initValue;
@@ -109,7 +109,7 @@ export class TSFlag {
     }
 
     strArr(name: string, initValue: Array<string>, desc: string) {
-        this.setArgObj({ name, type: 'number', optionVal: initValue, description: desc });
+        this.setArgObj({ name, type: 'string', optionVal: initValue, description: desc });
         let optionIndex = this.getOptionIndex(name);
         let optionVal = this._args[optionIndex].split("=")[1];
         if (!optionVal) return initValue;

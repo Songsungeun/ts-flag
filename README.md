@@ -46,7 +46,7 @@ Error: girlfriend option is not contained
 Usage of this
   - ea<number>, initValue=1 [count of tickes]
   - love<boolean>, initValue=false [if you love me write this option]
-  - girlfriend<number>, initValue=everyone [my girl friend]
+  - girlfriend<string>, initValue=everyone [my girl friend]
 ```
 
 ### Array Example
