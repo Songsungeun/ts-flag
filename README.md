@@ -11,8 +11,10 @@ npm install ts-flag
 
 ## USAGE
 
+### in .js
+
 ```javascript
-let flag = require('ts_flag').TSFlag;
+let flag = require('ts-flag').TSFlag;
 let tsFlag = new flag();
 
 try {
@@ -25,6 +27,24 @@ try {
   tsFlag.Usage();
 }
 ```
+
+### in .ts
+
+```javascript
+import { TSFlag } from 'ts-flag';
+
+let flag = new TSFlag();
+
+try {
+  let ea: number = flag.str('ea', 0, 'count of tickes'); // error ea type is number but return type is string, and then parameter type error
+  let ea2: number = flag.int('ea', 0, 'correct type');
+} catch (e) {
+  console.log(e);
+  flag.Usage();
+}
+```
+
+![errorPng](./example/tsError.png);
 
 ### Example
 
@@ -58,7 +78,7 @@ Usage of this
 ### Array Example
 
 ```javascript
-let flag = require('ts_flag').TSFlag;
+let flag = require('ts-flag').TSFlag;
 let tsFlag = new flag();
 
 try {
